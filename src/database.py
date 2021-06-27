@@ -17,7 +17,10 @@ def list_reminders():
 
 def add_reminder(text, date, ReminderClass):
     reminder = ReminderClass(text, date)
-    with open('reminders.csv', 'a+', newline='\n') as file:
-        writer = csv.writer(file)
-        writer.writerow(reminder)
+    if isinstance(reminder, ReminderClass):
+        with open('reminders.csv', 'a+', newline='\n') as file:
+            writer = csv.writer(file)
+            writer.writerow(reminder)
+    else:
+        raise TypeError
 

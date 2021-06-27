@@ -16,9 +16,8 @@ def list_reminders():
 
 
 def add_reminder(text, date, ReminderClass):
-    if issubclass(ReminderClass, DeadlinedReminder):
-        reminder = ReminderClass(text, date)
-        with open('reminders.csv', 'a+', newline='\n') as file:
-            writer = csv.writer(file)
-            writer.writerow(reminder)
+    reminder = ReminderClass(text, date)
+    with open('reminders.csv', 'a+', newline='\n') as file:
+        writer = csv.writer(file)
+        writer.writerow(reminder)
 

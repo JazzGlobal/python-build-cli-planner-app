@@ -17,6 +17,7 @@ class DeadlinedReminder(ABC, Iterable):
     @abstractmethod
     def is_due(self):
         pass
+
     @classmethod
     def __subclasshook__(cls, subclass):
         if cls is not DeadlinedReminder:
@@ -28,7 +29,6 @@ class DeadlinedReminder(ABC, Iterable):
         if not all(attr_in_hierarchy(attr) for attr in ('__iter__', 'is_due')):
             return NotImplemented
         return True
-
 
 
 class DateReminder(DeadlinedReminder):

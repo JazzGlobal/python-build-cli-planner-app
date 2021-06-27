@@ -9,10 +9,13 @@ class PrefixedReminder:
         self.text = prefix + '<placeholder_text>'
 
 
-class PoliteReminder(PrefixedReminder, Iterable):
-    def __init__(self, prefix, text):
+class PoliteReminder(PrefixedReminder):
+    def __init__(self, text, date=None):
         super().__init__()
         self.text = self.prefix + text
 
     def __iter__(self):
-        return [self.text]
+        return iter([self.text])
+
+    def is_due(self, date):
+        pass

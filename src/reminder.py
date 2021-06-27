@@ -11,7 +11,7 @@ class PrefixedReminder:
 
 class PoliteReminder(PrefixedReminder):
     def __init__(self, text, date=None):
-        super().__init__()
+        super().__init__("Please remember to ")
         self.text = self.prefix + text
 
     def __iter__(self):
